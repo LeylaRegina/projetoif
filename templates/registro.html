@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/registro.css') }}">
+    <script>
+        // Função para validar a senha
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$&]).{6,}$/; // Validação: Mínimo 6 caracteres, 1 maiúscula, 1 número e 1 caractere especial
+
+            // Verifica se a senha atende aos requisitos
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").innerHTML = 
+                    "A senha deve ter pelo menos 6 caracteres, 1 letra maiúscula, 1 número e 1 caractere especial (!@#$&).";
+                return false;
+            } else {
+                document.getElementById("passwordError").innerHTML = "";
+            }
+
+            // Verifica se a senha e a confirmação são iguais
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerHTML = "As senhas não coincidem.";
+                return false;
+            } else {
+                document.getElementById("confirmPasswordError").innerHTML = "";
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Usuário</h1>
+        {% if success %}
+            <p style="color: green;">{{ success }}</p>
+        {% endif %}
+        <form action="{{ url_for('registro') }}" method="post" onsubmit="return validatePassword()">
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="full_name">Nome Completo:</label><br>
+            <input type="text" id="full_name" name="full_name" required><br><br>
+
+            <label for="password">Senha:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <small id="passwordError" style="color: red;"></small><br>
+
+            <label for="confirm_password">Confirmar Senha:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+            <small id="confirmPasswordError" style="color: red;"></small><br>
+
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>
