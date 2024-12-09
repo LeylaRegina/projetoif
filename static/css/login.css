@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    margin-top: 50px;
+    width: 90%;  /* O container ocupa 90% da largura da tela */
+    max-width: 900px; /* Limita a largura máxima do container */
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para mais destaque */
+    box-sizing: border-box; /* Garante que o padding não afete a largura do container */
+}
+
+input {
+    width: 100%; /* Garante que o input ocupe toda a largura disponível */
+    padding: 15px; /* Aumenta o padding interno para tornar o campo mais espaçoso */
+    margin: 10px 0; /* Aumenta o espaçamento entre os campos */
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box; /* Garante que o padding seja incluído no cálculo da largura */
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #00b32a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #008a1f;
+}
+
+small {
+    font-size: 14px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.description {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.images-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.images-container img {
+    width: 30%;  /* Ajusta o tamanho das imagens */
+    height: auto;
+    margin: 0 15px;
+}

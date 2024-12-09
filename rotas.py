@@ -13,7 +13,12 @@ def index ():
 
 @app.route("/login")
 def login ():
-    return "Aqui sera pagina de login"
+    return render_template("login.html")
+
+
+@app.route('/registro')
+def registro(): 
+    return render_template('registro.html') 
 
 #colocar o site no ar
 if __name__ == '__main__':

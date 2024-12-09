@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
+    <script>
+        // Função para validar a senha
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$&]).{6,}$/; // Validação: Mínimo 6 caracteres, 1 maiúscula, 1 número e 1 caractere especial
+
+            // Verifica se a senha atende aos requisitos
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").innerHTML = "A senha deve ter pelo menos 6 caracteres, 1 letra maiúscula, 1 número e 1 caractere especial (!@#$&).";
+                return false;
+            } else {
+                document.getElementById("passwordError").innerHTML = "";
+            }
+
+            // Verifica se a senha e a confirmação são iguais
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerHTML = "As senhas não coincidem.";
+                return false;
+            } else {
+                document.getElementById("confirmPasswordError").innerHTML = "";
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Página de Login</h1>
+        <form action="/templates/login.html" method="post" onsubmit="return validatePassword()">
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Senha:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <small id="passwordError" style="color: red;"></small><br>
+
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p>Ainda não tem uma conta? <a href="{{ url_for('registro') }}">Cadastre-se</a></p>
+        <p class="description">Esses são os campos de RO</p>
+        
+        <!--Imagens abaixo do botão de login -->
+        <div class="images-container">
+            <img src="{{ url_for('static', filename='img/ifro calama.png') }}" alt="Imagem 1">
+            <img src="{{ url_for('static', filename='img/ifro-zona norte.png') }}" alt="Imagem 2">
+        </div>  
+    </div>
+</body>
+</html>
