@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao site do IFRO</h1>
+        <img src="{{ url_for('static', filename='img/inicial.png') }}" alt="Imagem de Boas-vindas">
+        <br>
+        <a href="{{ url_for('login') }}" class="btn">Ir para pagina de Login</a>
+    </div>
+</body>
+</html>
